@@ -1,0 +1,10 @@
+#N canvas 898 149 363 273 12;
+#X obj 179 127 bng 20 250 50 0 empty empty empty 0 -10 0 12 #fcfcfc #000000 #000000;
+#X obj 179 161 outlet;
+#X obj 78 42 inlet~;
+#X obj 141 42 inlet;
+#X obj 77 94 else/tabwriter~;
+#X connect 0 0 1 0;
+#X connect 2 0 4 0;
+#X connect 3 0 4 0;
+#X connect 4 1 0 0;

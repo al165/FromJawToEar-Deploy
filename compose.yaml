@@ -1,0 +1,31 @@
+services:
+  pd:
+    build: ./pd
+    restart: unless-stopped
+    volumes:
+      - "./pd/:/fjte"
+    devices:
+      - "/dev/snd/:/dev/snd/"
+
+  mqtt-osc:
+    build: ./mqtt-osc
+    restart: unless-stopped
+    depends_on:
+      - mosquitto
+    environment:
+      MQTT_HOST: mosquitto
+      MQTT_PORT: 1883
+      OSC_HOST: pd
+      OSC_PORT: 8000
+
+  mosquitto:
+    image: eclipse-mosquitto:2
+    restart: unless-stopped
+    ports:
+      - 1883:1883
+      - 9883:9883 # HTML dashboard
+    volumes:
+      - mqtt-data:/mosquitto/data
+
+volumes:
+  mqtt-data:

@@ -1,0 +1,15 @@
+0 all-off;
+60 mix-rev-voice set 0.6;
+0 rev-voice 1;
+10 wifi-noise sample 1, fadein;
+0 mix-wifi-noise set 0.6;
+10 rev-voice 0;
+60 rev-voice 1;
+0 wifi-noise fadeout;
+40 rev-voice 0;
+10 wifi-noise, fadein;
+60 rev-voice 1;
+40 rev-voice 0 30;
+wifi-noise fadeout;
+0 mix-wifi-noise set 0;
+0 mix-rev-voice set 0;
