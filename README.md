@@ -12,11 +12,17 @@ Not (yet) included in the repo:
 - Embedded system code for ESP32s.
 - RaspberryPi scripts
 
+## Requirements
+
+- A USB sound card connected to main computer (so `pd -audiodev 2` resolves to
+  an output device), otherwise there is no sound.
+- An internet connection on first build to install dependencies
+
 ## To start
 
 ```sh
 # on the main computer
-docker compose up -d
+docker compose up -d --build
 ```
 
 ## Architecture

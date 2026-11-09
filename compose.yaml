@@ -3,9 +3,12 @@ services:
     build: ./pd
     restart: unless-stopped
     volumes:
-      - "./pd/:/fjte"
+      - ./pd/:/fjte
+      - stream:/fjta/stream
     devices:
       - "/dev/snd/:/dev/snd/"
+    environment:
+      FJTE_RECORD: 0
 
   mqtt-osc:
     build: ./mqtt-osc
@@ -29,3 +32,4 @@ services:
 
 volumes:
   mqtt-data:
+  stream:

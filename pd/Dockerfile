@@ -52,5 +52,7 @@ COPY . .
 EXPOSE 8000
 
 ENV FJTE_BASE_DIR=/fjte
+ENV FJTE_SAVE_DIR=/fjte/stream
+ENV FJTE_RECORD=0
 
-CMD ["pd", "-nogui", "-nomidi", "-stderr", "FromJawToEar.pd"]
+CMD ["pd", "-nogui", "-nomidi", "-audiodev", "2,0", "-stderr", "FromJawToEar.pd"]
